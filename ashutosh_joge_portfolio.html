@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashutosh Joge - Product Manager</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Header/Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: linear-gradient(180deg, rgba(0,0,0,0.8) 0%, transparent 100%);
+            z-index: 1000;
+            padding: 20px 50px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(0,0,0,0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #e50914;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #e50914;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><defs><linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23000;stop-opacity:1"/><stop offset="50%" style="stop-color:%23141414;stop-opacity:1"/><stop offset="100%" style="stop-color:%23000;stop-opacity:1"/></linearGradient><radialGradient id="glow1" cx="30%" cy="30%" r="40%"><stop offset="0%" style="stop-color:%23e50914;stop-opacity:0.3"/><stop offset="100%" style="stop-color:%23e50914;stop-opacity:0"/></radialGradient><radialGradient id="glow2" cx="70%" cy="70%" r="35%"><stop offset="0%" style="stop-color:%23ff6b6b;stop-opacity:0.2"/><stop offset="100%" style="stop-color:%23ff6b6b;stop-opacity:0"/></radialGradient></defs><rect fill="url(%23bg)" width="1920" height="1080"/><rect fill="url(%23glow1)" width="1920" height="1080"/><rect fill="url(%23glow2)" width="1920" height="1080"/><g opacity="0.1"><polygon fill="%23e50914" points="200,100 250,200 150,200"/><polygon fill="%23fff" points="800,300 900,400 700,400"/><polygon fill="%23e50914" points="1400,200 1500,350 1300,350"/><polygon fill="%23fff" points="600,700 750,800 450,800"/><polygon fill="%23e50914" points="1600,600 1700,750 1500,750"/></g><g opacity="0.05"><circle fill="%23e50914" cx="300" cy="200" r="8"/><circle fill="%23fff" cx="500" cy="400" r="5"/><circle fill="%23e50914" cx="1200" cy="300" r="10"/><circle fill="%23fff" cx="1500" cy="500" r="6"/><circle fill="%23e50914" cx="800" cy="600" r="7"/><circle fill="%23fff" cx="1700" cy="800" r="4"/></g><g opacity="0.03"><rect fill="%23e50914" x="100" y="400" width="50" height="50" transform="rotate(45 125 425)"/><rect fill="%23fff" x="1400" y="100" width="30" height="30" transform="rotate(45 1415 115)"/><rect fill="%23e50914" x="700" y="800" width="40" height="40" transform="rotate(45 720 820)"/><rect fill="%23fff" x="1600" y="400" width="25" height="25" transform="rotate(45 1612 412)"/></g></svg>');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><defs><filter id="noise"><feTurbulence baseFrequency="0.02" numOctaves="3" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0"/></filter></defs><rect width="1920" height="1080" filter="url(%23noise)" opacity="0.5"/></svg>');
+            opacity: 0.1;
+            animation: shimmer 20s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+            animation: fadeInUp 1s ease-out;
+        }
+        .hero-greeting {
+            font-size: 1.8rem;
+            color: #e50914;
+            margin-bottom: 10px;
+            font-weight: 400;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #fff, #e50914);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: #ccc;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+        }
+
+        /* KPIs Section */
+        .hero-kpis {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+
+        .kpi-item {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
+            min-width: 120px;
+            transition: all 0.3s ease;
+        }
+
+        .kpi-item:hover {
+            background: rgba(229,9,20,0.1);
+            border-color: rgba(229,9,20,0.3);
+            transform: translateY(-5px);
+        }
+
+        .kpi-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #e50914;
+            margin-bottom: 8px;
+        }
+
+        .kpi-label {
+            font-size: 0.9rem;
+            color: #ccc;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Scroll Arrow */
+        .scroll-arrow {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .scroll-text {
+            font-size: 0.9rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .arrow-down {
+            width: 30px;
+            height: 30px;
+            border: 2px solid #e50914;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .arrow-down:hover {
+            background: #e50914;
+            transform: scale(1.1);
+        }
+
+        .arrow-down::after {
+            content: '↓';
+            color: #e50914;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .arrow-down:hover::after {
+            color: #fff;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #e50914;
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: #d40812;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 100px 50px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            text-align: center;
+            color: #fff;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 15px;
+            background-image: url('Untitled.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+            
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #ccc;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .skill-card {
+            background: rgba(255,255,255,0.05);
+            padding: 30px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            background: rgba(229,9,20,0.1);
+            border-color: rgba(229,9,20,0.3);
+        }
+
+        .skill-card h3 {
+            color: #e50914;
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+        }
+
+        .skill-item {
+            margin-bottom: 20px;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            color: #ccc;
+            font-size: 0.95rem;
+        }
+
+        .skill-percentage {
+            color: #e50914;
+            font-weight: bold;
+        }
+
+        .skill-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #e50914, #ff4757);
+            border-radius: 4px;
+            transition: width 1.5s ease-in-out;
+            width: 0;
+        }
+
+        .skill-progress.animate {
+            animation: progressFill 1.5s ease-in-out forwards;
+        }
+
+        @keyframes progressFill {
+            from { width: 0; }
+        }
+
+        /* Tools Section */
+        .tools-section {
+            background: rgba(255,255,255,0.02);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .tool-card {
+            background: rgba(255,255,255,0.05);
+            padding: 30px 20px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.1);
+            cursor: pointer;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            background: rgba(229,9,20,0.1);
+            border-color: rgba(229,9,20,0.3);
+            box-shadow: 0 15px 35px rgba(229,9,20,0.2);
+        }
+
+        .tool-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            transition: transform 0.3s ease;
+        }
+
+        .tool-card:hover .tool-icon {
+            transform: scale(1.1);
+        }
+
+        .tool-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .tool-category {
+            font-size: 0.9rem;
+            color: #888;
+        }
+        /* Experience Section */
+        .experience-timeline {
+            position: relative;
+            margin-top: 50px;
+        }
+
+        .experience-item {
+            background: rgba(255,255,255,0.05);
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border-left: 4px solid #e50914;
+            transition: all 0.3s ease;
+        }
+
+        .experience-item:hover {
+            transform: translateX(10px);
+            background: rgba(229,9,20,0.1);
+        }
+
+        .experience-item h3 {
+            color: #e50914;
+            margin-bottom: 10px;
+        }
+
+        .experience-item .company {
+            font-size: 1.1rem;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .experience-item .duration {
+            color: #888;
+            margin-bottom: 15px;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .project-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(229,9,20,0.3);
+            box-shadow: 0 20px 40px rgba(229,9,20,0.1);
+        }
+
+        .project-image {
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 100%);
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-card h3 {
+            color: #e50914;
+            margin-bottom: 12px;
+            font-size: 1.4rem;
+        }
+
+        .project-card p {
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .project-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .skill-tag {
+            background: rgba(229,9,20,0.2);
+            color: #fff;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(229,9,20,0.3);
+        }
+
+        .project-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-details {
+            background: #e50914;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 500;
+        }
+
+        .btn-details:hover {
+            background: #d40812;
+            transform: translateY(-2px);
+        }
+
+
+        /* Testimonials Section */
+        .testimonials-section {
+            background: rgba(229,9,20,0.05);
+            border-top: 1px solid rgba(229,9,20,0.2);
+            border-bottom: 1px solid rgba(229,9,20,0.2);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .testimonial-card {
+            background: rgba(255,255,255,0.05);
+            padding: 40px 30px;
+            border-radius: 15px;
+            position: relative;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            background: rgba(229,9,20,0.1);
+            border-color: rgba(229,9,20,0.3);
+            box-shadow: 0 20px 40px rgba(229,9,20,0.2);
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 4rem;
+            color: #e50914;
+            opacity: 0.3;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #ccc;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #e50914, #ff6b6b);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+            border: 2px solid rgba(229,9,20,0.3);
+        }
+
+        .author-info {
+            flex: 1;
+        }
+
+        .author-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .author-title {
+            font-size: 0.95rem;
+            color: #e50914;
+            margin-bottom: 3px;
+        }
+
+        .author-company {
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin: 50px 0;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            text-align: center;
+        }
+
+        .contact-item h3 {
+            color: #e50914;
+            margin-bottom: 10px;
+        }
+
+        .contact-item p {
+            color: #ccc;
+        }
+
+        .contact-item a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: #e50914;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 20px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            .hero-greeting {
+                font-size: 1.4rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .section {
+                padding: 50px 20px;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-kpis {
+                gap: 30px;
+            }
+
+            .kpi-item {
+                min-width: 100px;
+                padding: 15px;
+            }
+
+            .kpi-value {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">Product Portfolio</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#tools">Tools</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <p class="hero-greeting">Hello, I'm</p>
+            <h1>Ashutosh Joge</h1>
+            <p class="subtitle">Aspiring Product Manager | AI Decision Science Consultant</p>
+            <p class="subtitle">Turning ideas into products from 0 to 1, and scaling them with strategy and data from 1 to 100</p>
+            <br> </br>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn-primary">View My Work</a>
+                <a href="#contact" class="btn-secondary">Get In Touch</a>
+                <a href="https://drive.google.com/file/d/1MSMgcDvYLx1FC-wiEiS16qiBZYs2Euc4/view?usp=sharing" class="btn-secondary" target="_blank" rel="noopener noreferrer">Download CV</a>
+            </div>
+            <div class="hero-kpis">
+                <div class="kpi-item">
+                    <div class="kpi-value">4.5+</div>
+                    <div class="kpi-label">Years Experience</div>
+                </div>
+                <div class="kpi-item">
+                    <div class="kpi-value">5+</div>
+                    <div class="kpi-label">Projects Delivered</div>
+                </div>
+                <div class="kpi-item">
+                    <div class="kpi-value">£8M</div>
+                    <div class="kpi-label">Revenue Impact</div>
+                </div>
+            </div>
+            <div class="scroll-arrow">
+                <span class="scroll-text">Scroll Down</span>
+                <div class="arrow-down" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section fade-in">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <div class="about-image"></div>
+            <div class="about-text">
+                <p>I’m an analytical and outcome-oriented Product Manager with 4.5 years of experience, beginning my career in data science before transitioning into product management after completing a certification from ISB. My journey from analytics to product has given me a strong foundation in turning insights into user-focused, scalable solutions.</p>
+                <p>I’ve led initiatives spanning conversational AI, data-driven growth, and predictive analytics—designing solutions that improved product performance, reduced costs, and enhanced user engagement. Experienced in roadmapping, user research, and go-to-market strategies, I collaborate closely with cross-functional teams to align product vision with business goals.</p>
+                <p>Adept at bridging technical and non-technical stakeholders, I bring a blend of technical expertise and strategic thinking to build products from 0 to 1 with vision, and scale them from 1 to 100 through execution and iteration.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section fade-in">
+        <h2>Core Competencies</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>Product Strategy</h3>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Market & Competitive Research</span>
+                        <span class="skill-percentage">85%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="85%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Product Road-mapping</span>
+                        <span class="skill-percentage">88%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="88%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Product Positioning</span>
+                        <span class="skill-percentage">70%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="70%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>PRDs & User Stories</span>
+                        <span class="skill-percentage">95%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="95%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Go-to-Market Strategy</span>
+                        <span class="skill-percentage">80%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="80%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Customer Persona</span>
+                        <span class="skill-percentage">80%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="80%"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="skill-card">
+                <h3>Data & Analytics</h3>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>SQL & Python</span>
+                        <span class="skill-percentage">90%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="90%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Google Analytics</span>
+                        <span class="skill-percentage">80%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="80%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>A/B Testing</span>
+                        <span class="skill-percentage">70%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="70%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Machine Learning & AI</span>
+                        <span class="skill-percentage">90%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="90%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Gen AI</span>
+                        <span class="skill-percentage">82%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="82%"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="skill-card">
+                <h3>Design & User Experience</h3>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>User Research</span>
+                        <span class="skill-percentage">87%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="87%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Wireframing & Prototyping</span>
+                        <span class="skill-percentage">82%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="82%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Figma & Sketch</span>
+                        <span class="skill-percentage">75%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="75%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Dashboard</span>
+                        <span class="skill-percentage">86%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="86%"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="skill-card">
+                <h3>Leadership & Collaboration</h3>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Cross-functional Leadership</span>
+                        <span class="skill-percentage">94%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="94%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Stakeholder Management</span>
+                        <span class="skill-percentage">92%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="92%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Agile/Scrum</span>
+                        <span class="skill-percentage">88%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="88%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Business Case Development</span>
+                        <span class="skill-percentage">90%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="90%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section id="tools" class="section tools-section fade-in">
+        <h2>Tools & Technologies</h2>
+        <div class="tools-grid">
+            <div class="tool-card">
+                <div class="tool-icon" style="background-image: url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 80 80&quot;><rect fill=&quot;%232684FF&quot; width=&quot;80&quot; height=&quot;80&quot; rx=&quot;8&quot;/><circle fill=&quot;%23fff&quot; cx=&quot;30&quot; cy=&quot;30&quot; r=&quot;12&quot;/><circle fill=&quot;%23fff&quot; cx=&quot;50&quot; cy=&quot;50&quot; r=&quot;12&quot;/><circle fill=&quot;%232684FF&quot; cx=&quot;30&quot; cy=&quot;30&quot; r=&quot;6&quot;/><circle fill=&quot;%232684FF&quot; cx=&quot;50&quot; cy=&quot;50&quot; r=&quot;6&quot;/><path stroke=&quot;%23fff&quot; stroke-width=&quot;3&quot; fill=&quot;none&quot; d=&quot;M30,30 L50,50&quot;/></svg>')"></div>
+                <div class="tool-name">Jira</div>
+                <div class="tool-category">Agile Management</div>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-icon" style="background-image: url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 80 80&quot;><rect fill=&quot;%23A259FF&quot; width=&quot;80&quot; height=&quot;80&quot; rx=&quot;8&quot;/><circle fill=&quot;%23F24E1E&quot; cx=&quot;30&quot; cy=&quot;30&quot; r=&quot;12&quot;/><circle fill=&quot;%23FF7262&quot; cx=&quot;50&quot; cy=&quot;30&quot; r=&quot;12&quot;/><circle fill=&quot;%23A259FF&quot; cx=&quot;30&quot; cy=&quot;50&quot; r=&quot;12&quot;/><circle fill=&quot;%231ABCFE&quot; cx=&quot;50&quot; cy=&quot;50&quot; r=&quot;12&quot;/><circle fill=&quot;%2300C4CC&quot; cx=&quot;40&quot; cy=&quot;40&quot; r=&quot;12&quot;/></svg>')"></div>
+                <div class="tool-name">Figma</div>
+                <div class="tool-category">Design / Wireframing</div>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-icon" style="background-image: url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 80 80&quot;><circle fill=&quot;%23FFD02F&quot; cx=&quot;40&quot; cy=&quot;40&quot; r=&quot;38&quot;/><circle fill=&quot;%23fff&quot; cx=&quot;40&quot; cy=&quot;40&quot; r=&quot;28&quot;/><rect fill=&quot;%23FFD02F&quot; x=&quot;20&quot; y=&quot;35&quot; width=&quot;40&quot; height=&quot;10&quot; rx=&quot;2&quot;/><circle fill=&quot;%23FFD02F&quot; cx=&quot;30&quot; cy=&quot;25&quot; r=&quot;6&quot;/><circle fill=&quot;%23FFD02F&quot; cx=&quot;50&quot; cy=&quot;25&quot; r=&quot;6&quot;/><circle fill=&quot;%23FFD02F&quot; cx=&quot;40&quot; cy=&quot;55&quot; r=&quot;8&quot;/><path stroke=&quot;%23FFD02F&quot; stroke-width=&quot;3&quot; fill=&quot;none&quot; d=&quot;M25,50 Q40,60 55,50&quot;/></svg>')"></div>
+                <div class="tool-name">Miro</div>
+                <div class="tool-category">Collaboration</div>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-icon" style="background-image: url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 80 80&quot;><circle fill=&quot;%23F06A6A&quot; cx=&quot;40&quot; cy=&quot;40&quot; r=&quot;38&quot;/><circle fill=&quot;%23fff&quot; cx=&quot;40&quot; cy=&quot;40&quot; r=&quot;28&quot;/><circle fill=&quot;%23F06A6A&quot; cx=&quot;25&quot; cy=&quot;30&quot; r=&quot;6&quot;/><circle fill=&quot;%23F06A6A&quot; cx=&quot;40&quot; cy=&quot;30&quot; r=&quot;6&quot;/><circle fill=&quot;%23F06A6A&quot; cx=&quot;55&quot; cy=&quot;30&quot; r=&quot;6&quot;/><rect fill=&quot;%23F06A6A&quot; x=&quot;15&quot; y=&quot;45&quot; width=&quot;50&quot; height=&quot;8&quot; rx=&quot;2&quot;/><path stroke=&quot;%23F06A6A&quot; stroke-width=&quot;2&quot; fill=&quot;none&quot; d=&quot;M25,30 L25,45 M40,30 L40,45 M55,30 L55,45&quot;/></svg>')"></div>
+                <div class="tool-name">Asana</div>
+                <div class="tool-category">Project Management</div>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-icon" style="background-image: url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 80 80&quot;><circle fill=&quot;%23FF6F00&quot; cx=&quot;40&quot; cy=&quot;40&quot; r=&quot;38&quot;/><circle fill=&quot;%23fff&quot; cx=&quot;40&quot; cy=&quot;40&quot; r=&quot;28&quot;/><path fill=&quot;%23FF6F00&quot; d=&quot;M25,30 L55,30 L50,50 L30,50 Z&quot;/><circle fill=&quot;%23FF6F00&quot; cx=&quot;35&quot; cy=&quot;35&quot; r=&quot;3&quot;/><circle fill=&quot;%23FF6F00&quot; cx=&quot;45&quot; cy=&quot;35&quot; r=&quot;3&quot;/><text x=&quot;40&quot; y=&quot;63&quot; text-anchor=&quot;middle&quot; fill=&quot;%23FF6F00&quot; font-size=&quot;8&quot; font-weight=&quot;bold&quot;>GA4</text></svg>')"></div>
+                <div class="tool-name">Google Analytics 4</div>
+                <div class="tool-category">Web Analytics</div>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-icon" style="background-image: url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 80 80&quot;><rect fill=&quot;%234C2C92&quot; width=&quot;80&quot; height=&quot;80&quot; rx=&quot;8&quot;/><circle fill=&quot;%23fff&quot; cx=&quot;25&quot; cy=&quot;30&quot; r=&quot;8&quot;/><circle fill=&quot;%23fff&quot; cx=&quot;55&quot; cy=&quot;30&quot; r=&quot;8&quot;/><circle fill=&quot;%23fff&quot; cx=&quot;40&quot; cy=&quot;50&quot; r=&quot;8&quot;/><path stroke=&quot;%23fff&quot; stroke-width=&quot;3&quot; fill=&quot;none&quot; d=&quot;M25,30 L40,50 L55,30&quot;/><text x=&quot;40&quot; y=&quot;70&quot; text-anchor=&quot;middle&quot; fill=&quot;%23fff&quot; font-size=&quot;8&quot; font-weight=&quot;bold&quot;>MP</text></svg>')"></div>
+                <div class="tool-name">Mixpanel</div>
+                <div class="tool-category">Analytics</div>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-icon" style="background-image: url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 80 80&quot;><rect fill=&quot;%23fff&quot; width=&quot;80&quot; height=&quot;80&quot; rx=&quot;8&quot;/><rect fill=&quot;%23000&quot; x=&quot;10&quot; y=&quot;15&quot; width=&quot;60&quot; height=&quot;50&quot; rx=&quot;4&quot;/><rect fill=&quot;%23fff&quot; x=&quot;15&quot; y=&quot;20&quot; width=&quot;50&quot; height=&quot;6&quot; rx=&quot;1&quot;/><rect fill=&quot;%23fff&quot; x=&quot;15&quot; y=&quot;30&quot; width=&quot;35&quot; height=&quot;4&quot; rx=&quot;1&quot;/><rect fill=&quot;%23fff&quot; x=&quot;15&quot; y=&quot;38&quot; width=&quot;45&quot; height=&quot;4&quot; rx=&quot;1&quot;/><rect fill=&quot;%23fff&quot; x=&quot;15&quot; y=&quot;46&quot; width=&quot;30&quot; height=&quot;4&quot; rx=&quot;1&quot;/><rect fill=&quot;%23fff&quot; x=&quot;15&quot; y=&quot;54&quot; width=&quot;40&quot; height=&quot;4&quot; rx=&quot;1&quot;/></svg>')"></div>
+                <div class="tool-name">Notion</div>
+                <div class="tool-category">Documentation</div>
+            </div>
+                                 
+            <div class="tool-card">
+                <div class="tool-icon" style="background-image: url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 80 80&quot;><rect fill=&quot;%2300B956&quot; width=&quot;80&quot; height=&quot;80&quot; rx=&quot;8&quot;/><rect fill=&quot;%23fff&quot; x=&quot;15&quot; y=&quot;20&quot; width=&quot;50&quot; height=&quot;40&quot; rx=&quot;3&quot;/><rect fill=&quot;%2300B956&quot; x=&quot;20&quot; y=&quot;25&quot; width=&quot;15&quot; height=&quot;10&quot; rx=&quot;2&quot;/><rect fill=&quot;%2300B956&quot; x=&quot;40&quot; y=&quot;25&quot; width=&quot;20&quot; height=&quot;10&quot; rx=&quot;2&quot;/><rect fill=&quot;%2300B956&quot; x=&quot;20&quot; y=&quot;40&quot; width=&quot;25&quot; height=&quot;8&quot; rx=&quot;2&quot;/><rect fill=&quot;%2300B956&quot; x=&quot;50&quot; y=&quot;40&quot; width=&quot;10&quot; height=&quot;8&quot; rx=&quot;2&quot;/></svg>')"></div>
+                <div class="tool-name">Balsamiq</div>
+                <div class="tool-category">Wireframing</div>
+            </div>
+            
+            <div class="tool-card">
+                <div class="tool-icon" style="background-image: url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 80 80&quot;><rect fill=&quot;%233377CC&quot; width=&quot;80&quot; height=&quot;80&quot; rx=&quot;8&quot;/><circle fill=&quot;%23fff&quot; cx=&quot;40&quot; cy=&quot;40&quot; r=&quot;25&quot;/><path fill=&quot;%233377CC&quot; d=&quot;M30,30 h20 v20 h-20 z&quot;/><path fill=&quot;%233377CC&quot; d=&quot;M40,20 v40&quot; stroke=&quot;%233377CC&quot; stroke-width=&quot;5&quot;/><path fill=&quot;%233377CC&quot; d=&quot;M20,40 h40&quot; stroke=&quot;%233377CC&quot; stroke-width=&quot;5&quot;/></svg>')"></div>
+                <div class="tool-name">Tableau</div>
+                <div class="tool-category">Data Visualization</div>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-icon" style="background-image: url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 80 80&quot;><rect fill=&quot;%23107C41&quot; width=&quot;80&quot; height=&quot;80&quot; rx=&quot;8&quot;/><rect fill=&quot;%23fff&quot; x=&quot;10&quot; y=&quot;15&quot; width=&quot;60&quot; height=&quot;50&quot; rx=&quot;3&quot;/><rect fill=&quot;%23107C41&quot; x=&quot;15&quot; y=&quot;20&quot; width=&quot;15&quot; height=&quot;8&quot;/><rect fill=&quot;%23107C41&quot; x=&quot;35&quot; y=&quot;20&quot; width=&quot;15&quot; height=&quot;8&quot;/><rect fill=&quot;%23107C41&quot; x=&quot;55&quot; y=&quot;20&quot; width=&quot;10&quot; height=&quot;8&quot;/><rect fill=&quot;%23107C41&quot; x=&quot;15&quot; y=&quot;32&quot; width=&quot;20&quot; height=&quot;6&quot;/><rect fill=&quot;%23107C41&quot; x=&quot;40&quot; y=&quot;32&quot; width=&quot;25&quot; height=&quot;6&quot;/><rect fill=&quot;%23107C41&quot; x=&quot;15&quot; y=&quot;42&quot; width=&quot;30&quot; height=&quot;6&quot;/><rect fill=&quot;%23107C41&quot; x=&quot;50&quot; y=&quot;42&quot; width=&quot;15&quot; height=&quot;6&quot;/><rect fill=&quot;%23107C41&quot; x=&quot;15&quot; y=&quot;52&quot; width=&quot;25&quot; height=&quot;6&quot;/><rect fill=&quot;%23107C41&quot; x=&quot;45&quot; y=&quot;52&quot; width=&quot;20&quot; height=&quot;6&quot;/></svg>')"></div>
+                <div class="tool-name">MS Excel</div>
+                <div class="tool-category">Data Analysis</div>
+            </div>
+            
+            <div class="tool-card">
+                <div class="tool-icon" style="background-image: url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 80 80&quot;><rect fill=&quot;%23D24726&quot; width=&quot;80&quot; height=&quot;80&quot; rx=&quot;8&quot;/><rect fill=&quot;%23fff&quot; x=&quot;15&quot; y=&quot;20&quot; width=&quot;50&quot; height=&quot;40&quot; rx=&quot;3&quot;/><rect fill=&quot;%23D24726&quot; x=&quot;20&quot; y=&quot;25&quot; width=&quot;40&quot; height=&quot;8&quot;/><rect fill=&quot;%23D24726&quot; x=&quot;20&quot; y=&quot;38&quot; width=&quot;15&quot; height=&quot;6&quot;/><rect fill=&quot;%23D24726&quot; x=&quot;40&quot; y=&quot;38&quot; width=&quot;20&quot; height=&quot;6&quot;/><rect fill=&quot;%23D24726&quot; x=&quot;20&quot; y=&quot;48&quot; width=&quot;25&quot; height=&quot;6&quot;/><circle fill=&quot;%23D24726&quot; cx=&quot;55&quot; cy=&quot;51&quot; r=&quot;3&quot;/></svg>')"></div>
+                <div class="tool-name">MS PowerPoint</div>
+                <div class="tool-category">Presentations</div>
+            </div>
+        </div>
+    </section>    
+
+
+    <!-- Experience Section -->
+    <section id="experience" class="section fade-in">
+        <h2>Professional Journey</h2>
+        <div class="experience-timeline">
+            <div class="experience-item">
+                <h3>AI Decision Science Consultant</h3>
+                <div class="company">Accenture</div>
+                <div class="duration">June 2021 - Present</div>
+                <p>Drove data-first product initiatives across telecom and enterprise domains, enabling leadership to make faster, data-backed decisions, reducing reporting time by 90%, increasing SMB sales by 20%.</p>
+            </div>
+            <div class="experience-item">
+                <h3>Software Developer 1</h3>
+                <div class="company">Stride.ai</div>
+                <div class="duration">Jan 2021 - June 2021</div>
+                <p>Built and deployed automated data scrapers that reduced implementation time by 90%, significantly improving product efficiency and speed to market.</p>
+            </div>            
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section fade-in">
+        <h2>Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image" style="background-image: url('1.jpg')"></div>
+                <div class="project-content">
+                    <h3>MoneyMate - Usecase Study</h3>
+                    <p>Researched the personal finance market and identified unmet needs in expense tracking and financial literacy. Designed MoneyMate’s wireframes and execution roadmap, resulting in a differentiated app concept with strong market potential to improve savings habits and financial decision-making.</p>
+                    <div class="project-skills">
+                        <span class="skill-tag">Market Research</span>
+                        <span class="skill-tag">Figma</span>
+                        <span class="skill-tag">Competitive Research</span>
+                        <span class="skill-tag">User Persona</span>
+                        <span class="skill-tag">GTM</span>
+                        <span class="skill-tag">KPI & Metrics</span>
+                    </div>
+                    <div class="project-actions">
+                        <a href="https://drive.google.com/file/d/15yYTjYmOiYDXfW5ReiklursdhWkfCLOy/view?usp=sharing" class="btn-details" target="_blank">View Case Study</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image" style="background-image: url('flipkart.jpg')"></div>
+                <div class="project-content">
+                    <h3>Flipkart - Product Roadmapping</h3>
+                    <p>Planned a strategic roadmap to enhance Flipkart’s customer experience by minimizing order cancellations, streamlining returns, and improving product accuracy. Introduced solutions such as image-based search, open-box delivery, and multilingual support—aimed at driving higher trust, faster decision-making, and accessibility for the next billion users.</p>
+                    <div class="project-skills">
+                        <span class="skill-tag">Roadmap Planning</span>
+                        <span class="skill-tag">Problem Solving</span>
+                        <span class="skill-tag">Customer Experience</span>
+                        <span class="skill-tag">Growth Strategy</span>
+                        <span class="skill-tag">Business Analysis</span>
+                    </div>
+                    <div class="project-actions">
+                        <a href="https://docs.google.com/document/d/1EfhX7qqGbjQh0kPv7THbnnVztR-HF096/edit?usp=sharing&ouid=102576102960712210956&rtpof=true&sd=true" class="btn-details" target="_blank">View Case Study</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image" style="background-image: url('paytm.jpg')"></div>
+                <div class="project-content">
+                    <h3>Paytm - New Loyalty Program</h3>
+                    <p>Planned and prototyped a Paytm loyalty program to increase user stickiness in a competitive payments market. Created wireframes and a rewards structure that incentivizes frequent transactions, referrals, and reviews. The solution enhances user satisfaction with personalized benefits while reducing churn risk and driving adoption.</p>
+                    <div class="project-skills">
+                        <span class="skill-tag">Loyalty Program Design</span>
+                        <span class="skill-tag">Customer Retention Strategy</span>
+                        <span class="skill-tag">Brand Partnership Strategy</span>
+                        <span class="skill-tag">Wireraming</span>
+                        <span class="skill-tag">Rewards & Gamification Systems</span>
+                    </div>
+                    <div class="project-actions">
+                        <a href="https://drive.google.com/file/d/10LsAVoHSU0RDa5dPlgjlcwD1wwzMhbkY/view?usp=sharing" class="btn-details" target="_blank">View Case Study</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Testimonials Section -->
+    <section id="testimonials" class="section testimonials-section fade-in">
+        <h2>What People Say</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                    “What stands out about Ashutosh is his growth mindset and ability to take on challenges head-on. When asked to step beyond his original scope, he didn’t hesitate to expand his skillset and quickly became confident in full-stack data builds. His commitment, ownership, and problem-solving skills make him an invaluable member of the Transformation Team.”
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">ET</div>
+                    <div class="author-info">
+                        <div class="author-name">Eleanor Thompson</div>
+                        <div class="author-title">Manager</div>
+                        <div class="author-company">Accenture</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                    “What sets Ashutosh apart is his ability to combine strong technical problem-solving with a clear understanding of business outcomes. The dashboards and automated solutions he’s built have replaced manual reporting, ensured data accuracy, and enabled consistent methodologies for tracking benefits. The impact has been significant, both in terms of efficiency and client confidence.”
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">NB</div>
+                    <div class="author-info">
+                        <div class="author-name">Nicholas Brunner</div>
+                        <div class="author-title">Consultant</div>
+                        <div class="author-company">Accenture</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                    “Ashutosh has been instrumental in driving multiple aspects of our project—right from developing playbooks and designing workflows to carrying out in-depth testing. His proactive approach and problem-solving mindset ensure quality outcomes every single time. What sets him apart is his ability to take complete ownership of tasks with minimal guidance, which makes him a dependable and trusted teammate.”
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">SA</div>
+                    <div class="author-info">
+                        <div class="author-name">Saurabh Agarwal</div>
+                        <div class="author-title">Manager</div>
+                        <div class="author-company">Accenture</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                    “Ashutosh is highly-motivated and possesses exceptional expertise in technology and leadership skills. His work ethics and dedication to work have even inspired me as I watched him transition from an intern to a software developer. With his growth-mindset and excellent problem-solving skills, it’s easy to see why he’s everyone’s go-to person in the team.”
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">AG</div>
+                    <div class="author-info">
+                        <div class="author-name">Amitha Gopalkrishnan</div>
+                        <div class="author-title">Project Manager</div>
+                        <div class="author-company">Stride.ai</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="section fade-in">
+        <h2>Let's Connect</h2>
+        <div class="contact-content">
+            <p>Ready to discuss how I can help drive your product success? Let's start a conversation.</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>Email</h3>
+                    <p><a href="mailto:jogeashutosh@gmail.com">jogeashutosh@gmail.com</a></p>
+                </div>
+                <div class="contact-item">
+                    <h3>LinkedIn</h3>
+                    <p><a href="https://www.linkedin.com/in/ashutosh-joge/" target="_blank" rel="noopener noreferrer">linkedin.com/in/ashutosh-joge</a></p>
+                </div>
+                <div class="contact-item">
+                    <h3>Location</h3>
+                    <p>Bengaluru, IN</p>
+                </div>
+            </div>
+            <div class="cta-buttons">
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=jogeashutosh@gmail.com" class="btn-primary" target="_blank" rel="noopener noreferrer">Send Message</a>
+                <a href="https://drive.google.com/file/d/1MSMgcDvYLx1FC-wiEiS16qiBZYs2Euc4/view?usp=sharing" class="btn-secondary" target="_blank" rel="noopener noreferrer">Download Resume</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Animate skill bars when they come into view
+        const skillObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const progressBars = entry.target.querySelectorAll('.skill-progress');
+                    progressBars.forEach(bar => {
+                        const width = bar.getAttribute('data-width');
+                        setTimeout(() => {
+                            bar.style.width = width;
+                        }, 200);
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.skill-card').forEach(card => {
+            skillObserver.observe(card);
+        });
+    </script>
+</body>
+</html>
