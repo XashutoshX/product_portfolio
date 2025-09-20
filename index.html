@@ -239,7 +239,9 @@
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .btn-primary {
@@ -261,6 +263,10 @@
         .btn-secondary:hover {
             background: rgba(255,255,255,0.2);
             transform: translateY(-2px);
+        }
+
+        .btn-icon {
+            font-size: 1rem;
         }
 
         /* Section Styles */
@@ -554,7 +560,9 @@
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             font-weight: 500;
         }
 
@@ -720,6 +728,86 @@
         }
 
         /* Responsive Design */
+        @media (max-width: 1200px) {
+            .navbar {
+                padding: 15px 30px;
+            }
+            
+            .section {
+                padding: 80px 30px;
+            }
+            
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            
+            .hero-kpis {
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .navbar {
+                padding: 15px 25px;
+            }
+            
+            .section {
+                padding: 70px 25px;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero-greeting {
+                font-size: 1.6rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                text-align: center;
+            }
+            
+            .about-image {
+                width: 250px;
+                height: 250px;
+                margin: 0 auto;
+            }
+            
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 25px;
+            }
+            
+            .tools-grid {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+                gap: 25px;
+            }
+            
+            .projects-grid {
+                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+                gap: 25px;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 30px;
+            }
+            
+            .experience-timeline {
+                margin-left: 10px;
+            }
+            
+            .contact-info {
+                gap: 40px;
+            }
+        }
+
         @media (max-width: 768px) {
             .navbar {
                 padding: 15px 20px;
@@ -743,10 +831,72 @@
             .section {
                 padding: 50px 20px;
             }
+
+            .section h2 {
+                font-size: 2rem;
+                margin-bottom: 30px;
+            }
             
             .about-content {
                 grid-template-columns: 1fr;
                 text-align: center;
+            }
+
+            .about-image {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .tools-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 20px;
+            }
+            
+            .tool-card {
+                padding: 20px 15px;
+            }
+            
+            .tool-icon {
+                width: 60px;
+                height: 60px;
+                margin-bottom: 15px;
+            }
+            
+            .tool-name {
+                font-size: 1rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .project-card {
+                margin: 0 auto;
+                max-width: 400px;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .testimonial-card {
+                padding: 30px 20px;
+            }
+            
+            .experience-item {
+                padding: 20px;
+                margin-left: 0;
+            }
+            
+            .experience-item:hover {
+                transform: translateX(5px);
             }
             
             .contact-info {
@@ -757,19 +907,209 @@
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
+                gap: 15px;
+            }
+            
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                max-width: 250px;
+                justify-content: center;
             }
 
             .hero-kpis {
-                gap: 30px;
+                gap: 20px;
+                flex-direction: column;
+                align-items: center;
             }
 
             .kpi-item {
                 min-width: 100px;
                 padding: 15px;
+                width: 140px;
             }
 
             .kpi-value {
                 font-size: 2rem;
+            }
+            
+            .visitor-counter {
+                bottom: 15px;
+                right: 15px;
+                padding: 8px 12px;
+                font-size: 0.8rem;
+            }
+            
+            .visitor-counter-icon {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-greeting {
+                font-size: 1.2rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1rem;
+            }
+            
+            .section {
+                padding: 40px 15px;
+            }
+            
+            .section h2 {
+                font-size: 1.8rem;
+                margin-bottom: 25px;
+            }
+            
+            .about-image {
+                width: 180px;
+                height: 180px;
+            }
+            
+            .skill-card {
+                padding: 20px 15px;
+            }
+            
+            .tools-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            
+            .tool-card {
+                padding: 15px 10px;
+            }
+            
+            .tool-icon {
+                width: 50px;
+                height: 50px;
+                margin-bottom: 10px;
+            }
+            
+            .tool-name {
+                font-size: 0.9rem;
+            }
+            
+            .tool-category {
+                font-size: 0.8rem;
+            }
+            
+            .testimonial-card {
+                padding: 20px 15px;
+            }
+            
+            .testimonial-text {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+            
+            .author-avatar {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+            
+            .author-name {
+                font-size: 1rem;
+            }
+            
+            .author-title {
+                font-size: 0.85rem;
+            }
+            
+            .author-company {
+                font-size: 0.8rem;
+            }
+            
+            .hero-kpis {
+                gap: 15px;
+            }
+
+            .kpi-item {
+                width: 120px;
+                padding: 12px;
+            }
+
+            .kpi-value {
+                font-size: 1.8rem;
+            }
+            
+            .kpi-label {
+                font-size: 0.8rem;
+            }
+            
+            .visitor-counter {
+                bottom: 10px;
+                right: 10px;
+                padding: 6px 10px;
+                font-size: 0.75rem;
+                border-radius: 20px;
+            }
+            
+            .visitor-counter-icon {
+                font-size: 0.8rem;
+            }
+            
+            .btn-primary, .btn-secondary {
+                padding: 12px 20px;
+                font-size: 1rem;
+            }
+            
+            .btn-details {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-greeting {
+                font-size: 1.1rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 0.95rem;
+            }
+            
+            .section {
+                padding: 30px 10px;
+            }
+            
+            .tools-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            
+            .tool-card {
+                padding: 12px 8px;
+            }
+            
+            .hero-kpis {
+                gap: 12px;
+            }
+
+            .kpi-item {
+                width: 100px;
+                padding: 10px;
+            }
+
+            .kpi-value {
+                font-size: 1.6rem;
+            }
+            
+            .visitor-counter {
+                position: fixed;
+                bottom: 8px;
+                right: 8px;
+                padding: 5px 8px;
+                font-size: 0.7rem;
             }
         }
     </style>
